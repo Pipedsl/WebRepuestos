@@ -1,0 +1,15 @@
+Hugo Navarrete domingo 04-Jun
+modifique: serializer.py: proveedor (cambie cod_proveedor por rut+dv)
+ademas agregue categoria
+
+modifique: models.py: class Proveedor agregue CATEGORIA_CHOICES, CAMBIE cod_proveedor por rut+dv
+
+modifique: P2.html cambie la estructura por una similar a la realizada por el profesor en P1.html 
+
+modifique: P3.html lo mismo que en P2.html, pero modificando más con lo necesario en proveedor
+
+Antonio domingo 04-Jun
+
+Agregó: htmls contact y sucursales
+
+Agregó el contenido a las urls y views 

@@ -1,0 +1,246 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Ogani Template">
+    <meta name="keywords" content="Ogani, unica, creative, html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{% block Sucursales %} {% endblock %}</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap" rel="stylesheet">
+
+    <!-- Css Styles -->
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" >
+    <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}" >
+    <link rel="stylesheet" href="{% static 'css/elegant-icons.css' %}" >
+    <link rel="stylesheet" href="{% static 'css/nice-select.css' %}" >
+    <link rel="stylesheet" href="{% static 'css/jquery-ui.min.css' %}" >
+    <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}" >
+    <link rel="stylesheet" href="{% static 'css/slicknav.min.css' %}" >
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+{% load static %}
+<!-- Header Section Begin -->
+<img src="{% static 'img\banner-34-hdr.jpg'%}" alt="Banner">
+<header class="header">
+    <div class="header__top">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-md-6">
+                    <div class="header__top__left">
+                        <ul>
+                            <li><i class="fa fa-envelope"></i> repuestosHD@gmail.com</li>
+                            <li>Todo lo que necesitas para tu auto y más</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6">
+                    <div class="header__top__right">
+                        <div class="header__top__right__social">
+                            <a href="#"><i class="fa fa-facebook"></i></a>
+                            <a href="#"><i class="fa fa-twitter"></i></a>
+                            <a href="#"><i class="fa fa-linkedin"></i></a>
+                            <a href="#"><i class="fa fa-pinterest-p"></i></a>
+                        </div>
+                        <div class="header__top__right__language">
+                            <img src="{% static 'img/language.png'%}" alt="">
+                            <div>Idiomas</div>
+                            <span class="arrow_carrot-down"></span>
+                            <ul>
+                                <li><a href="#">Español</a></li>
+                                <li><a href="#">Ingles</a></li>
+                            </ul>
+                        </div>
+                        <div class="header__top__right__auth">
+                            <a href="/p5"><i class="fa fa-user"></i> Ingreso</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3">
+            </div>
+            <div class="col-lg-6">
+                <nav class="header__menu">
+                    <ul>
+                        <li class="active"><a href="/">Inicio</a></li>
+                        <li><a href="sucursales">Sucursales</a></li>
+                        <li><a href="contact">Contacto</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="col-lg-3">
+                <div class="header__cart">
+                    <ul>
+                        <li><a href="#"><i class="fa fa-heart"></i> <span></span></a></li>
+                        <li><a href="#"><i class="fa fa-shopping-bag"></i> <span></span></a></li>
+                    </ul>
+                    <div class="header__cart__price"> <span></span></div>
+                </div>
+            </div>
+        </div>
+        <div class="humberger__open">
+            <i class="fa fa-bars"></i>
+        </div>
+    </div>
+    
+</header>
+<!-- Header Section End -->
+
+<body>
+    {% load static %}
+    <div class="hero__item">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                   <div class="hero__text">
+                        <h2 style="color: black;">"¿Buscando repuestos de auto confiables?  <br />¡No busques más! Contáctanos y aprovecha nuestro amplio inventario y servicio de primera clase."</h2>
+                        <p style="color: black;">A Lo Largo De Todo El Pais</p>
+                        <a href="#" class="primary-btn">Compra Ahora</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+ 
+    <!-- Breadcrumb Section End -->
+
+    <!-- Contact Section End -->
+
+    <!-- Map Begin -->
+  
+    <!-- Map End -->
+
+    <!-- Contact Form Begin -->
+    <div class="contact-form spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="contact__form__title">
+                        <h2>Dejanos tu Mensaje</h2>
+                    </div>
+                </div>
+            </div>
+            <form action="#">
+                <div class="row">
+                    <div class="col-lg-6 col-md-6">
+                        <input type="text" placeholder="Nombre">
+                    </div>
+                    <div class="col-lg-6 col-md-6">
+                        <input type="text" placeholder="Correo Electronico">
+                    </div>
+                    <div class="col-lg-12 text-center">
+                        <textarea placeholder="Mensaje"></textarea>
+                        <button type="submit" class="site-btn">Enviar Mensaje</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+   
+
+    <!-- Contact Form End -->
+
+    <!-- Footer Section Begin -->
+    {% load static %}
+    <!-- Footer Section Begin -->
+    <footer class="footer spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="footer__about">
+                        <ul>
+                            <li>Direccion: Enrique Segoviano, Santiago</li>
+                            <li>Telefono: +569 98590459</li>
+                            <li>Correo: repuestosHD@gmail.com</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-6 offset-lg-1">
+                    <div class="footer__widget">
+                        <h6>Enlaces</h6>
+                        <ul>
+                            <li><a href="#">Sobre Nosotros</a></li>
+                            <li><a href="#">Sobre Nuestra Tienda</a></li>
+                            <li><a href="#">Compra Segura</a></li>
+                            <li><a href="#">Información de Delivery</a></li>
+                            <li><a href="#">Politica de Privacidad</a></li>
+                            <li><a href="#">Mapa del Sitio</a></li>
+                        </ul>
+                        <ul>
+                            <li><a href="#">Quienes Somos</a></li>
+                            <li><a href="#">Nuestros Servicios</a></li>
+                            <li><a href="#">Projectos</a></li>
+                            <li><a href="#">Contacto</a></li>
+                            <li><a href="#">Innovación</a></li>
+                            <li><a href="#">Testimonios</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-12">
+                    <div class="footer__widget">
+                        <h6>Unete a nuestra comunidad Ahora</h6>
+                        <p>Agrega tú correo enterate de actualizaciones, estado de tu compra y ofertas especiales.</p>
+                        <form action="#">
+                            <div>
+                            <input type="text" placeholder="Ingresa tú correo">
+                             </div>
+                            <div>
+                                <ul>
+                               
+                                    </ul>
+                                </div>
+                        </form>
+                        <div class="footer__widget__social">
+                            <a href="#"><i class="fa fa-facebook"></i></a>
+                            <a href="#"><i class="fa fa-instagram"></i></a>
+                            <a href="#"><i class="fa fa-twitter"></i></a>
+                            <a href="#"><i class="fa fa-pinterest"></i></a>
+                        </div>
+                    </div>
+                    <div>
+                        
+                          <button type="submit" class="site-btn"> Subscribete </button>
+                            
+                        </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="footer__copyright">
+                        <div class="footer__copyright__text"><p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+  <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p></div>
+                        <div class="footer__copyright__payment"><img src="{% static 'img/payment-item.png'%}" alt=""></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Footer Section End -->
+    <!-- Footer Section End -->
+
+    <!-- Js Plugins -->
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.nice-select.min.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
+    <script src="js/jquery.slicknav.js"></script>
+    <script src="js/mixitup.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/main.js"></script>
+
+   
+</body>
+
+</html>

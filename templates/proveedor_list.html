@@ -1,0 +1,200 @@
+{% load static %}
+<!-- Encabezado del documento -->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Proveedores</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap" rel="stylesheet">
+
+    <!-- Css Styles -->
+    {% include 'layouts/partials/css.html' %}
+    <style>
+    .container-icon {
+        text-align: center;
+        margin-top: 3%;
+    }
+
+    header {
+        margin-bottom:0;
+        padding:0;
+    }
+
+    h1 {
+        margin-bottom: 3%;
+    }
+
+    table {
+        width: 80%;
+        margin: 0 auto;
+        border-collapse: collapse;
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 100%;
+        font-weight: bolder;
+    }
+
+    th,
+    td {
+        padding: 15px;
+        border-bottom: 1px solid black;
+    }
+
+    tbody tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+
+    tbody tr:last-child {
+        border-bottom: none;
+    }
+
+    .btn {
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-size: 16px;
+        margin: 10px;
+        cursor: pointer;
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 100%;
+        font-weight: bolder;
+    }
+    #back {
+    background-color: #333;
+    }
+    .btn:hover {
+        background-color: #666;
+    }
+    
+    button[type="submit"] {
+        margin-top: 20px;
+        padding: 10px 20px;
+        background-color: #333;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    button[type="submit"]:hover {
+        background-color: #666;
+    }
+
+    button[type="submit"] a, button a {
+        color: white;
+        text-decoration: none;
+    }
+    </style>
+</head>
+<img src="{% static 'img\banner-34-hdr.jpg'%}" alt="Banner">
+<body>
+    <!-- Contenedor principal -->
+    <!-- Encabezado -->
+    <!-- Barra de navegación -->
+    <div>
+    {% include 'layouts/partials/scripts.html' %}
+    <header>
+        <div class="container">
+        <div class="row">
+            <div class="col-lg-3"></div>
+            <div class="col-lg-6">
+            <nav class="header__menu">
+                <ul>
+                <li class="active"><a href="/">Inicio</a></li>
+                <li><a href="../sucursales">Sucursales</a></li>
+                <li><a href="../contact">Contacto</a></li>
+                </ul>
+            </nav>
+            </div>
+        </div>
+        <div class="humberger__open">
+            <i class="fa fa-bars"></i>
+        </div>
+        </div>
+    </header>
+
+    <div class="container-icon">
+        <h1>Lista de Proveedor</h1>
+        <table>
+        <thead>
+            <tr>
+            <th>Nombre</th>
+            <th>Categoría</th>
+            <th>Teléfono</th>
+            <th></th>
+            </tr>
+        </thead>
+        <tbody id="listaDatos"></tbody>
+        </table>
+        <button class="btn" id="back"><a href="/proveedor">Volver</a></button>
+    </div>
+
+    <script>
+        // Realiza la solicitud a la API externa y procesa los datos
+        fetch('http://0.0.0.0:9010/api/proveedor/')
+        .then(response => response.json())
+        .then(data => {
+            // Obtén la referencia al tbody de la tabla
+            const tbody = document.getElementById('listaDatos');
+
+            // Itera sobre los datos y crea las filas de la tabla
+            data.forEach(item => {
+              // Crea una nueva fila de la tabla
+            const fila = document.createElement('tr');
+
+              // Crea las celdas en formato HTML
+            const celdas = `
+                <td>${item.nombre}</td>
+                <td>${item.categoria}</td>
+                <td>${item.telefono}</td>
+                <td>
+                <button class="btn btn-success" onclick="verItem(${item.rut})">Ver</button>
+                <button class="btn btn-warning" onclick="editarItem(${item.rut})">Editar</button>
+                <button class="btn btn-danger" onclick="eliminarItem(${item.rut})">Eliminar</button>
+                </td>
+            `;
+
+              // Asigna los valores de los campos de datos y las celdas a la fila
+            fila.innerHTML = celdas;
+
+              // Agrega la fila al tbody de la tabla
+            tbody.appendChild(fila);
+            });
+        })
+        .catch(error => {
+            console.log('Error:', error);
+        });
+
+        // Funciones de acciones para los botones
+        function verItem(id) {
+          // Lógica para ver el item con el ID proporcionado
+        console.log(`Ver item con ID: ${id}`);
+        }
+
+        function editarItem(id) {
+          // Lógica para editar el item con el ID proporcionado
+        console.log(`Editar item con ID: ${id}`);
+        }
+
+        function eliminarItem(rut) {
+        var confirmacion = confirm('¿Estás seguro de que deseas eliminar este empleado?');
+
+        if (confirmacion) {
+            $.ajax({
+            url: 'http://0.0.0.0:9010/api/proveedor/' + rut + '/',
+            method: 'DELETE',
+            success: function(response) {
+                window.location.href = '/proveedor_list';
+            },
+            error: function(error) {
+                console.log(error);
+            }
+            });
+        }
+        }
+    </script>
+
+    {% include 'layouts/partials/footer.html' %}
+    </div>
+</body>
+</html>

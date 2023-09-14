@@ -1,0 +1,51 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Ogani Template">
+    <meta name="keywords" content="Ogani, unica, creative, html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{% block title %} {% endblock %}</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap" rel="stylesheet">
+
+    <!-- Css Styles -->
+    {% include 'layouts/partials/css.html' %}
+    
+</head>
+
+
+
+{% include 'layouts/partials/header.html' %}
+<body>
+    <!-- Page Preloder -->
+    <div id="preloder">
+        <div class="loader"></div>
+    </div>
+
+{% block contentmovil %} {% endblock %}
+
+
+{% include 'layouts/partials/menumovil.html'%}
+
+
+
+     
+{% block content %} {% endblock %}
+    <!-- Footer Section Begin -->
+{% include 'layouts/partials/footer.html' %}
+
+
+    <!-- Js Plugins -->
+{% include 'layouts/partials/scripts.html' %}
+
+
+
+
+</body>
+
+</html>

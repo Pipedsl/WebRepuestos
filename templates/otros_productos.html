@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Accesorios de Auto HD</title>
+  <style>
+    /* Estilos CSS */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    
+    header {
+      background-color: #333;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+    
+    h1 {
+      margin: 0;
+    }
+    
+    main {
+      margin: 20px;
+    }
+    
+    .producto {
+      display: flex;
+      margin-bottom: 20px;
+    }
+    
+    .producto img {
+      width: 200px;
+      height: 150px;
+      margin-right: 20px;
+    }
+    
+    .producto-info {
+      flex-grow: 1;
+    }
+    
+    .producto-titulo {
+      font-size: 18px;
+      font-weight: bold;
+      margin: 0;
+    }
+    
+    .producto-descripcion {
+      margin: 10px 0;
+    }
+    
+    .producto-precio {
+      font-weight: bold;
+    }
+
+    .boton-comprar {
+      background-color: #4CAF50; /* Color de fondo */
+      border: none; /* Sin borde */
+      color: white; /* Color del texto */
+      padding: 10px 20px; /* Espaciado interno (arriba/abajo, izquierda/derecha) */
+      text-align: center; /* Alineación del texto */
+      text-decoration: none; /* Sin subrayado */
+      display: inline-block; /* Mostrar como bloque en línea */
+      font-size: 16px; /* Tamaño de fuente */
+      margin: 4px 2px; /* Margen exterior (arriba/abajo, izquierda/derecha) */
+      cursor: pointer; /* Cambiar el cursor al pasar sobre el botón */
+    }
+
+    .boton-comprar:hover {
+  background-color: #ff0000; /* Cambia el color a tu preferencia */
+  color: #000; /* Cambia el color del texto si es necesario */
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1> Productos para Autos</h1>
+  </header>
+  
+  <main>
+    <div class="producto">
+      <img src="/static/img/lubricantes.png" alt="Lubricantes">
+      <div class="producto-info">
+        <h2 class="producto-titulo">Lubricantes </h2>
+        <p class="producto-descripcion">Lubricantes de calidad para un motor óptimo.</p>
+        <p class="producto-precio">Precio: $15.990</p>
+        <button class="boton-comprar">Comprar</button>
+      </div>
+    </div>
+    
+    <div class="producto">
+      <img src="/static/img/cubrevolante.jpg" alt="Cubre Volante">
+      <div class="producto-info">
+        <h2 class="producto-titulo">Cubre Volante</h2>
+        <p class="producto-descripcion">Todo en Cubre Volantes para el cuidado y mantención de tu automovil.</p>
+        <p class="producto-precio">Precio: $5.990</p>
+        <button class="boton-comprar">Comprar</button>
+      </div>
+    </div>
+    
+    <div class="producto">
+        <img src="/static/img/fundauto.png" alt="Funda Para Asientos">
+        <div class="producto-info">
+          <h2 class="producto-titulo">Funda Para Asientos </h2>
+          <p class="producto-descripcion">Funda Cubre Asiento, ajustable, fácil de colocar y limpiar, ideal para la protección y mantención de los asientos de su automóvil.</p>
+          <p class="producto-precio">Precio: $29.990</p>
+          <button class="boton-comprar">Comprar</button>
+        </div>
+    </div>
+    
+    <div class="producto">
+        <img src="/static/img/aromatizante.png" alt="Aromatizantes">
+        <div class="producto-info">
+          <h2 class="producto-titulo">Aromatizantes</h2>
+          <p class="producto-descripcion">Aromatizante Papel Aroma New Car LITTLE TREES.</p>
+          <p class="producto-precio">Precio: $1.590</p>
+          <button class="boton-comprar">Comprar</button>
+
+        </div>
+    </div>  
+
+    <div class="producto">
+        <img src="/static/img/carwash.jpg" alt="Magic Car Wash">
+        <div class="producto-info">
+          <h2 class="producto-titulo">Magic Car Wash</h2>
+          <p class="producto-descripcion">Limpieza sustentables y eco saludables de gran calidad para tu familia y el medio ambiente. </p>
+          <p class="producto-precio">Precio: $19.990</p>
+          <button class="boton-comprar">Comprar</button>
+        </div>
+    </div>
+    
+      
+    <div class="producto">
+        <img src="/static/img/pisos-auto.jpg" alt="Cubre Pisos Auto">
+        <div class="producto-info">
+          <h2 class="producto-titulo">Cubre Pisos Auto</h2>
+          <p class="producto-descripcion">Juegos de pisos para vehículos de goma, delanteros y traseros.</p>
+          <p class="producto-precio">Precio: $10.990</p>
+          <button class="boton-comprar">Comprar</button>
+        </div>
+    </div>  
+     <!-- Botón "Volver" con estilo -->
+     <div class="producto">
+      <button class="boton-volver" onclick="volver()">Volver</button>
+    </div>
+  </main>
+  
+  <!-- Aquí puedes agregar tu script JavaScript -->
+  <script>
+    src="carrito.js"
+    function volver() {
+      // Redirigir a otra página
+      window.location.href = "/";
+    }
+  </script>
+</body>
+</html>
+  </main>
+</body>
+</html>

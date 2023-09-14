@@ -1,0 +1,133 @@
+{% load static %}
+<!-- Encabezado del documento -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Recuperar Contraseña</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap" rel="stylesheet">
+
+    <!-- Css Styles -->
+    {% include 'layouts/partials/css.html' %}
+  </head>
+
+  <body>
+    <!-- Contenedor principal -->
+    <!-- Encabezado -->
+    <!-- Barra de navegación -->
+    <div>
+        <style>
+
+            body {
+              position:0;
+            }
+            img {
+              position:absolute;
+              top: 0;
+              left: 0;
+              width: 100%;
+              height: 100%;
+              z-index: -1;
+            }
+          
+           /* aqui va el cuadro del login*/
+                .login-container {
+                  width: 30%;
+                  margin: auto;
+                  margin-top: 100px;
+                  padding: 20px;
+                  border-radius: 5px;
+                  background-color: #fff;
+                  box-shadow: 0px 0px 10px #888888;
+                  text-align: center;
+                }
+                
+                form {
+                  display: flex;
+                  flex-direction: column;
+                }
+                
+                h2 {
+                  margin-bottom: 20px;
+                }
+                
+                label {
+                  font-size: 16px;
+                  text-align: left;
+                  display: block;
+                  margin-bottom: 5px;
+                  margin-top: 10px;
+                }
+                
+                input[type="text"], input[type="password"], input[type="submit"] {
+                  width: 100%;
+                  padding: 10px 20px;
+                  margin: 8px 0;
+                  box-sizing: border-box;
+                  border: none;
+                  border-radius: 4px;
+                  font-size: 16px;
+                  background-color: #f2f2f2;
+                }
+                
+                .remember-me {
+                  display: flex;
+                  align-items: center;
+                  margin-top: 10px;
+                }
+                
+                input[type="checkbox"] {
+                  margin-right: 10px;
+                }
+                
+                input[type="submit"] {
+                  background-color: #D21111;
+                  color: #fff;
+                  cursor: pointer;
+                }
+                
+                input[type="submit"]:hover {
+                  background-color: white;
+                  color: #D21111;
+                }
+                /* texto todos los derechos reservados*/
+                p {
+                  text-align: center;
+                  font-size: 20px;
+                  color: rgb(255, 255, 255);
+                  margin-top: 150px;
+                }
+                .forgot-password-btn {
+                  background-color: #007bff;
+                  color: #fff;
+                  border: none;
+                  padding: 10px 20px;
+                  border-radius: 5px;
+                  font-size: 16px;
+                  cursor: pointer;
+                  margin-top: 10px;
+                  text-align: center;
+                }
+              </style>  
+        
+          <img src="{% static 'img/login.jpg'%} "alt="imagen de fondo">
+          <!-- aquí va el resto del contenido de la página -->
+          <div class="login-container">
+            <form>
+              <h2>Bienvenidos</h2>
+              <label for="email">Correo Electronico:</label>
+              <input type="email" id="email" name="email">
+              <input class ="primary-btn" type="submit" value="Enviar Correo">
+              <button class="btn primary-btn" type="reset">Limpiar</button>
+              <button class="btn"><a href="/">Volver Atrás</a></button>
+            </form>
+          </div>
+                
+        
+          <p>Todos los Derechos Reservados</p>
+      </div>
+      <div>
+    {% include 'layouts/partials/scripts.html' %}
+    {% include 'layouts/partials/footer.html' %}
+  </body>
+</html>

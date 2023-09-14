@@ -1,0 +1,300 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+  <meta charset="UTF-8">
+  <title>Bienvenido al menú de opciones de clientes</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap" rel="stylesheet">
+
+  <!-- Css Styles -->
+  {% include 'layouts/partials/css.html' %}
+  <style>
+    /* Estilos para los botones */
+    .btn {
+      color: white;
+      background-color: #333;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      font-size: 16px;
+      margin: 10px;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      background-color: #666;
+    }
+
+    /* Estilos para el formulario */
+    form {
+      margin-top: 20px;
+    }
+
+    label {
+      display: block;
+      margin-top: 10px;
+    }
+
+    input, select {
+      margin-top: 5px;
+      padding: 5px;
+      width: 200px;
+    }
+
+    button[type="submit"] {
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #333;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button[type="submit"]:hover {
+      background-color: #666;
+    }
+
+    button[type="submit"] a, button a {
+      color: white;
+      text-decoration: none;
+    }
+
+    /* Estilos para el contenedor principal */
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      font-family: 'Cairo', sans-serif;
+    }
+
+    /* Estilos para el encabezado */
+    header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    /* Estilos para la barra de navegación */
+    nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      text-align: center;
+    }
+
+    nav ul li {
+      display: inline-block;
+    }
+
+    /* Estilos para la sección principal */
+    #result {
+      margin-top: 20px;
+    }
+    .select-container {
+      width: 150px;
+  }
+  
+  .select-label {
+      font-weight: bold;
+  }
+  .rut-container {
+    display: flex;
+    align-items: center;
+  }
+  
+  .rut-container label {
+    margin-right: 5px;
+  }
+  
+  </style>
+</head>
+
+<img src="{% static 'img/banner-34-hdr.jpg'%}" alt="Banner">
+<header>
+  <div class="container">
+    <div class="row">
+        <div class="col-lg-3">
+        </div>
+        <div class="col-lg-6">
+            <nav class="header__menu">
+                <ul>
+                    <li class="/"><a href="/">Inicio</a></li>
+                    <li><a href="/sucursales">Sucursales</a></li>
+                    <li><a href="/contact">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+    <div class="humberger__open">
+        <i class="fa fa-bars"></i>
+    </div>
+</div>
+  <h2>Menú de opciones de Clientes</h2>
+</header>
+<body>
+  <!-- Contenedor principal -->
+  <div class="container">
+    <!-- Encabezado -->
+    <!-- Formulario para agregar cliente -->
+    <h5>Ingrese Los Datos Del Cliente</h5>
+
+    <form id="agregarForm" onsubmit="agregarCliente(event)">
+      <div class="rut-container">
+        <label for="rut">RUT:</label>
+        <input type="text" id="rut" name="rut" required >
+        <label for="dv">DV:</label>
+        <input type="text" id="dv" name="dv" maxlength="1" >
+        
+
+      </div>
+      <label for="nombre">Nombres:</label>
+      <input type="text" id="nombre" name="nombre" required >
+      <label for="apellido">Apellido:</label>
+      <input type="text" id="apellido" name="apellido" required >
+      <label for="correo">Correo electrónico:</label>
+      <input type="email" id="correo" name="correo" required >
+      <label for="contacto">Teléfono:</label>
+      <input type="tel" id="contacto" name="contacto" minlength="8" required >
+      <label for="local">Local:</label>
+      <input type="text" id="local" name="local" >
+      <div>
+
+      </div>
+      <button class="btn" onclick="javascript:agregarCliente()">Agregar</button>
+    </form>
+    <nav>
+      <ul style=" margin: 0 0 0 0; display: flex;">
+        <button class="btn"><a href="/cliente_list">Mostrar Clientes</a></button>
+        <!-- Limpiar Formulario-->
+        <li><button class="btn" onclick="limpiar()">Limpiar</button></li>
+        <!-- Volver -->
+        <li><button class="btn" onclick="volver()">Volver</button></li>
+      </ul>
+    </nav>
+    
+
+    <ul>
+    </ul>
+  </div>
+
+
+  <script>
+    function clienteLeer() {
+      var rut = prompt('Ingrese el RUT del cliente a buscar:');
+      if (rut) {
+        $.ajax({
+          url: 'http://localhost:9010/integracion_rest/cliente/buscar/',
+          method: 'GET',
+          data: { rut: rut },
+          success: function(response) {
+            var clientes = JSON.parse(response);
+            var mensaje = 'Lista de clientes:\n\n';
+            mensaje += '  +-------------------+-------------------+-----------+\n';
+            mensaje += '  |      Nombres      |    Apellidos      |    Rut    |\n';
+            mensaje += '  +-------------------+-------------------+-----------+\n';
+            clientes.forEach(function(cliente) {
+              mensaje += '  | ' + cliente.nombres.padEnd(18) + ' | ' + cliente.apellidos.padEnd(18) + ' | ' + cliente.rut + '-' + cliente.dv + ' |\n';
+            });
+            mensaje += '  +-------------------+-------------------+-----------+\n';
+            alert(mensaje);
+          },
+          error: function(error) {
+            console.log(error);
+          }
+        });
+      }
+    }
+    
+    
+    
+    
+    function padRight(text, length) {
+      return (text + '                              ').slice(0, length);
+    }
+    
+    
+    //function clienteActualizar() {
+      
+    //  var clienteId = 1;  
+    
+    //  window.location.href = '/cliente/' + clienteId + '/actualizar/';
+   // }
+
+    function clienteoEliminar() {
+    
+      var clienteId = 1;  
+      
+      var confirmacion = confirm('¿Estás seguro de que deseas eliminar este cliente?');
+      if (confirmacion) {
+        
+        $.ajax({
+          url: '/eliminar/',
+          method: 'POST',
+          success: function(response) {
+            
+            window.location.href = '/cliente/';
+          },
+          error: function(error) {
+            console.log(error);
+          }
+        });
+      }
+    }
+    
+  
+    function limpiar() {
+    
+      document.getElementById('agregarForm').reset();
+    }
+  
+    function volver() {
+      
+      window.location.href = '/';
+    }
+    
+    function agregarCliente(event) {
+      event.preventDefault(); // Evitar el envío del formulario tradicional
+      
+      var rut = document.getElementById('rut').value;
+      var dv = document.getElementById('dv').value;
+      var nombre = document.getElementById('nombre').value;
+      var apellido = document.getElementById('apellido').value;
+      var email = document.getElementById('correo').value;
+      var contacto = document.getElementById('contacto').value;
+      var local = document.getElementById('local').value;
+    
+      var clientePar = {
+        rut: rut,
+        nombre: nombre,
+        apellido: apellido,
+        dv: dv,
+        contacto: contacto,
+        email: email,
+        local: local
+      };
+      clienteJson = JSON.stringify(clientePar);
+    
+      $.ajax({
+        url: 'http://127.0.0.1:9010/api/cliente/',
+        method: 'POST',
+        data: clienteJson,
+        contentType: 'application/json',
+        success: function(response) {
+          alert('El cliente se ha creado correctamente.');
+          // Hacer cualquier otra acción necesaria después de agregar el cliente
+        },
+        error: function(error) {
+          console.log(error);
+          alert('Hubo un error al agregar el cliente. Por favor, intenta nuevamente.');
+        }
+      });
+    }
+    
+  </script>
+
+  {% include 'layouts/partials/scripts.html' %}
+  {% include 'layouts/partials/footer.html' %}
+</body>
+</html>
